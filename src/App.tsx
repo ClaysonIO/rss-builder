@@ -1,6 +1,6 @@
 import cronstrue from 'cronstrue';
 import './App.css'
-import {useEffect, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 
 function App() {
 
@@ -30,6 +30,10 @@ function App() {
 
     const readable = cronstrue.toString(cron);
 
+    const feedUrl = useMemo(()=>{
+        return `${window.location.origin}/rss/2024_H1?cron=${encodeURIComponent(cron)}&startDate=${startDate}&stamp=${new Date().valueOf()}`
+    }, [cron, startDate])
+
     return (
         <>
             <h1>General Conference Feed Builder</h1>
@@ -40,17 +44,24 @@ function App() {
             <hr style={{margin: '.5em 0'}}/>
 
             <label style={{marginTop: '.25em'}} htmlFor="start">Podcast Feed URL</label>
+            <div style={{display: 'flex', gap: '1em'}}>
             <input
-                onClick={(e) => {
-                    navigator.clipboard.writeText(e.currentTarget.value).then(function () {
+                onFocus={(e) => {
+                    e.target.select()
+                    navigator.clipboard.writeText(feedUrl);
+                }}
+                value={feedUrl}
+            />
+            <button
+                onClick={() => {
+                    navigator.clipboard.writeText(feedUrl).then(function () {
                         alert('Podcast Feed copied!');
                     }, function (err) {
                         console.error('Could not copy text: ', err);
                     });
                 }}
-                // disabled
-                value={`${window.location.origin}/rss/2024_H1?cron=${encodeURIComponent(cron)}&startDate=${startDate}&stamp=${new Date().valueOf()}`}
-            />
+            >Copy to Clipboard</button>
+            </div>
             <hr style={{margin: '.5em 0'}}/>
 
             <h3>Customize Schedule</h3>
