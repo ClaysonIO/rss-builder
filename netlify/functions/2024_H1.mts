@@ -140,7 +140,7 @@ export default async (req: Request, context: Context) => {
     const params = new URLSearchParams(url.search);
 
     const cron = params.get('cron');
-    const start = params.get('start');
+    const start = params.get('startDate');
 
     // return new Response(JSON.stringify({cron, start}))
 
@@ -164,25 +164,28 @@ export default async (req: Request, context: Context) => {
         }
     });
 
-    const startDate = dayjs(start, 'YYYY-MM-DD').toDate();
-
+    const startDate = dayjs(start, 'YYYY-MM-DD').startOf('day').toDate();
     const cronGenerator = parseCronExpression(cron)
-        .getNextDatesIterator(startDate, new Date())
+        .getNextDatesIterator(startDate, dayjs().add(1, 'd').toDate());
 
     let iterator = 0;
+
+    function isValidDate(d) {
+        return d instanceof Date && !isNaN(d);
+    }
 
     while(true){
         const post = posts[iterator];
         const date = cronGenerator.next().value;
 
-        if(!date) break;
+        if(!date || !isValidDate(date)) break;
         feed.addItem({
             title: post.speaker,
             id: post.url,
             link: post.url,
             description: post.speaker,
             author: [],
-            date: date,
+            date: dayjs(date).subtract(1, 'day').startOf('day').toDate(),
             image: post.image
         });
 
