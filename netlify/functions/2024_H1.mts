@@ -196,5 +196,9 @@ export default async (req: Request, context: Context) => {
 
 // Output: RSS 2.0
 
-    return new Response(feed.rss2())
+    return new Response(feed.rss2(), {
+        headers: {
+            'Content-Type': 'application/rss+xml'
+        }
+    })
 }
