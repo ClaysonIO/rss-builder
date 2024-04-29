@@ -49,7 +49,7 @@ function App() {
                     });
                 }}
                 // disabled
-                value={`${window.location.origin}/rss/2024_H1?cron=${encodeURIComponent(cron)}&startDate=${startDate}`}
+                value={`${window.location.origin}/rss/2024_H1?cron=${encodeURIComponent(cron)}&startDate=${startDate}&stamp=${new Date().valueOf()}`}
             />
             <hr style={{margin: '.5em 0'}}/>
 

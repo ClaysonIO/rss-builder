@@ -2,6 +2,7 @@ import type { Context } from "@netlify/functions"
 import {Feed} from "@numbered/feed";
 import dayjs from "dayjs";
 import {parseCronExpression} from "cron-schedule";
+import Mixpanel from 'mixpanel';
 
 const posts: {url: string, speaker: string}[] = [
     {
@@ -141,6 +142,19 @@ export default async (req: Request, context: Context) => {
 
     const cron = params.get('cron');
     const start = params.get('startDate');
+    const stamp = params.get('stamp');
+
+    if(process?.env?.MIXPANEL_TOKEN){
+        var mixpanel = Mixpanel.init(process.env.MIXPANEL_TOKEN);
+
+// Note: you must supply the user_id who performed the event in the `distinct_id` field
+        mixpanel.track("Signed Up", {
+            distinct_id: stamp || 'unknown',
+            type: 'RSS Feed',
+            cron,
+            start
+        });
+    }
 
     // return new Response(JSON.stringify({cron, start}))
 
