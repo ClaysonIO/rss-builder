@@ -37,7 +37,7 @@ function App() {
                         });
                     }}
                     // disabled
-                    value={`${window.location.origin}/rss/2024_H1?cron=${cron}&startDate=${startDate}`}
+                    value={`${window.location.origin}/rss/2024_H1?cron=${encodeURIComponent(cron)}&startDate=${startDate}`}
                 />
 
             </form>
