@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+
+
+  input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 16px;
+  }

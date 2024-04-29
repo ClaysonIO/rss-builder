@@ -1,5 +1,7 @@
 import type { Context } from "@netlify/functions"
 import {Feed} from "@numbered/feed";
+import dayjs from "dayjs";
+import {parseCronExpression} from "cron-schedule";
 
 const posts: {url: string, speaker: string}[] = [
     {
@@ -134,6 +136,14 @@ const posts: {url: string, speaker: string}[] = [
 
 export default async (req: Request, context: Context) => {
 
+    const url = new URL(req.url);
+    const params = new URLSearchParams(url.search);
+
+    const cron = params.get('cron');
+    const start = params.get('start');
+
+    // return new Response(JSON.stringify({cron, start}))
+
     const feed = new Feed({
         title: "2024 General Conference Talks",
         description: "Customizable conference talks feed",
@@ -154,18 +164,32 @@ export default async (req: Request, context: Context) => {
         }
     });
 
-    posts.forEach(post => {
+    const startDate = dayjs(start, 'YYYY-MM-DD').toDate();
+
+    const cronGenerator = parseCronExpression(cron)
+        .getNextDatesIterator(startDate, new Date())
+
+    let iterator = 0;
+
+    while(true){
+        const post = posts[iterator];
+        const date = cronGenerator.next().value;
+
+        if(!date) break;
         feed.addItem({
             title: post.speaker,
             id: post.url,
             link: post.url,
-            description: post.description,
-            content: post.content,
+            description: post.speaker,
             author: [],
-            date: post.date,
+            date: date,
             image: post.image
         });
-    });
+
+
+        iterator++;
+        if(iterator >= posts.length) break;
+    }
 
 // Output: RSS 2.0
 
