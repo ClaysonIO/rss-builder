@@ -186,7 +186,12 @@ export default async (req: Request, context: Context) => {
             description: post.speaker,
             author: [],
             date: dayjs(date).subtract(1, 'day').startOf('day').toDate(),
-            image: post.image
+            image: post.image,
+            enclosure: {
+                url: post.url,
+                type: "audio/mpeg",
+                length: 0
+            }
         });
 
 
