@@ -34,12 +34,29 @@ function App() {
         <>
             <h1>General Conference Feed Builder</h1>
             <p className="read-the-docs">
-                A simple builder to create a custom RSS feed from Spring 2024 General Conference talks.
+                A simple builder to create a custom Podcast RSS feed from Spring 2024 General Conference talks.
             </p>
 
+            <hr style={{margin: '.5em 0'}}/>
+
+            <label style={{marginTop: '.25em'}} htmlFor="start">Podcast Feed URL</label>
+            <input
+                onClick={(e) => {
+                    navigator.clipboard.writeText(e.currentTarget.value).then(function () {
+                        alert('Podcast Feed copied!');
+                    }, function (err) {
+                        console.error('Could not copy text: ', err);
+                    });
+                }}
+                // disabled
+                value={`${window.location.origin}/rss/2024_H1?cron=${encodeURIComponent(cron)}&startDate=${startDate}`}
+            />
+            <hr style={{margin: '.5em 0'}}/>
+
+            <h3>Customize Schedule</h3>
             <div style={{display: 'flex', flexDirection: 'column', gap: '.5em'}}>
 
-                <div style={{display: 'flex', justifyContent: 'center', gap: '1em'}}>
+                <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1em'}}>
                     <button className={selectedDays.includes(1) ? 'active' : ''} onClick={() => toggleDay(1)}>Mon
                     </button>
                     <button className={selectedDays.includes(2) ? 'active' : ''} onClick={() => toggleDay(2)}>Tue
@@ -72,20 +89,6 @@ function App() {
 
                 </div>
 
-                <hr style={{margin: '2em 0'}}/>
-
-                <label style={{marginTop: '1em'}} htmlFor="start">Podcast Feed URL</label>
-                <input
-                    onClick={(e) => {
-                        navigator.clipboard.writeText(e.currentTarget.value).then(function () {
-                            alert('Contents copied!');
-                        }, function (err) {
-                            console.error('Could not copy text: ', err);
-                        });
-                    }}
-                    // disabled
-                    value={`${window.location.origin}/rss/2024_H1?cron=${encodeURIComponent(cron)}&startDate=${startDate}`}
-                />
 
             </div>
 
