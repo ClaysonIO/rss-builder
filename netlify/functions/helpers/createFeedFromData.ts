@@ -36,7 +36,7 @@ export function createFeedFromData({
     },
     start: string,
     cron: string,
-    posts: { title: string, url: string, speaker: string }[]
+    posts: { href: string,  title: string, audioUrl: string, speaker: string }[]
 }) {
 
     const feed = new Feed({
@@ -59,24 +59,23 @@ export function createFeedFromData({
     let iterator = 0;
 
 
-    while (true) {
+    while (iterator < posts.length) {
         const post = posts[iterator];
         const date = cronGenerator.next().value;
 
         if (!post || !date || !isValidDate(date)) break;
         feed.addItem({
             title: post.title,
-            id: post.url,
-            link: post.url,
+            id: post.audioUrl,
+            link: post.href,
             description: post.speaker,
             author: [{
                 name: post.speaker,
                 email: ''
             }],
             date: dayjs(date).subtract(1, 'day').startOf('day').toDate(),
-            image: post.image,
             enclosure: {
-                url: post.url,
+                url: post.audioUrl,
                 type: "audio/mpeg",
                 length: 0
             }
@@ -84,7 +83,6 @@ export function createFeedFromData({
 
 
         iterator++;
-        if (iterator >= posts.length) break;
     }
 
     return feed;

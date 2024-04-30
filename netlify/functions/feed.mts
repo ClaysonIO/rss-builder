@@ -1,13 +1,14 @@
 import type {Context} from "@netlify/functions"
 import Mixpanel from 'mixpanel';
-import {Posts_2024_04} from './data/2024_H1';
 import {createFeedFromData} from "./helpers/createFeedFromData";
+import dayjs from "dayjs";
 
 export default async (req: Request, context: Context) => {
 
     const url = new URL(req.url);
     const params = new URLSearchParams(url.search);
 
+    const conference = params.get('conference');
     const cron = params.get('cron');
     const start = params.get('startDate');
     const stamp = params.get('stamp');
@@ -23,8 +24,12 @@ export default async (req: Request, context: Context) => {
         });
     }
 
+    const posts = require(`./data/${conference}.ts`).default
+    console.log("POSTS", posts)
+    const conferenceDate = dayjs(conference, 'YYYY_MM')
+
     const feed = createFeedFromData({
-        title: "2024 General Conference Talks",
+        title: "General Conference Talks: " + conferenceDate.format('MMM YYYY'),
         description: "Customizable conference talks feed",
         id: "https://rss.clayson.io/",
         link: "https://rss.clayson.io/",
@@ -39,7 +44,7 @@ export default async (req: Request, context: Context) => {
         },
         cron: cron ?? '',
         start: start ?? '',
-        posts: Posts_2024_04
+        posts: posts
     })
 
     return new Response(
