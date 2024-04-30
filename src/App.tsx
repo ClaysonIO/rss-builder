@@ -54,7 +54,7 @@ function App() {
     const sessions = generateSessions(2000, 2024, false);
 
     const [selectedSession,
-        setSelectedSession] = useState(sessions[0])
+        setSelectedSession] = useState<any>(sessions[0])
 
     const feedUrl = useMemo(()=>{
         return `${window.location.origin}/rss?session=${selectedSession?.value}&cron=${encodeURIComponent(cron)}&startDate=${startDate}&stamp=${new Date().valueOf()}`
