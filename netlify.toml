@@ -1,4 +1,9 @@
 [[redirects]]
+from = "/rss"
+to = "/.netlify/functions/feed"
+status = 200
+
+[[redirects]]
 from = "/rss/*"
 to = "/.netlify/functions/:splat"
 status = 200

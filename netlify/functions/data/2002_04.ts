@@ -1,4 +1,4 @@
-export const Posts_2002_04 = [
+const Posts_2002_04 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2002/04/the-church-goes-forward?lang=eng",
     "title": "The Church Goes Forward",
@@ -233,4 +233,5 @@ export const Posts_2002_04 = [
     "speaker": "",
     "audioUrl": ""
   }
-]
+] 
+ export default Posts_2002_04

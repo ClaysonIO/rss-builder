@@ -1,4 +1,4 @@
-export const Posts_2004_04 = [
+const Posts_2004_04 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2004/04/the-church-grows-stronger?lang=eng",
     "title": "The Church Grows Stronger",
@@ -227,4 +227,5 @@ export const Posts_2004_04 = [
     "speaker": "",
     "audioUrl": ""
   }
-]
+] 
+ export default Posts_2004_04

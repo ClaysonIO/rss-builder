@@ -1,4 +1,4 @@
-export const Posts_2005_10 = [
+const Posts_2005_10 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2005/10/opening-remarks?lang=eng",
     "title": "Opening Remarks",
@@ -233,4 +233,5 @@ export const Posts_2005_10 = [
     "speaker": "",
     "audioUrl": ""
   }
-]
+] 
+ export default Posts_2005_10

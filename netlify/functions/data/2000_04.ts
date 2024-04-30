@@ -1,4 +1,4 @@
-const posts = [
+const Posts_2000_04 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2000/04/to-all-the-world-in-testimony?lang=eng",
     "title": "To All the World in Testimony",
@@ -227,6 +227,5 @@ const posts = [
     "speaker": "",
     "audioUrl": ""
   }
-]
-
-export default posts;
+] 
+ export default Posts_2000_04

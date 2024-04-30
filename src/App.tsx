@@ -1,6 +1,7 @@
 import cronstrue from 'cronstrue';
 import './App.css'
 import {useEffect, useMemo, useState} from "react";
+import Select from 'react-select';
 
 function App() {
 
@@ -30,9 +31,34 @@ function App() {
 
     const readable = cronstrue.toString(cron);
 
+
+    function generateSessions(startYear: number, endYear: number, includeOctober: boolean) {
+        const sessions = [];
+        for (let year = startYear; year <= endYear; year++) {
+            sessions.push({
+                value: `${year}_04`,
+                label: `April ${year}`
+            });
+
+            if(includeOctober || year !== endYear){
+                sessions.push({
+                    value: `${year}_10`,
+                    label: `October ${year}`
+                });
+            }
+        }
+        return sessions.reverse();
+    }
+
+
+    const sessions = generateSessions(2000, 2024, false);
+
+    const [selectedSession,
+        setSelectedSession] = useState(sessions[0])
+
     const feedUrl = useMemo(()=>{
-        return `${window.location.origin}/rss/2024_H1?cron=${encodeURIComponent(cron)}&startDate=${startDate}&stamp=${new Date().valueOf()}`
-    }, [cron, startDate])
+        return `${window.location.origin}/rss?session=${selectedSession?.value}&cron=${encodeURIComponent(cron)}&startDate=${startDate}&stamp=${new Date().valueOf()}`
+    }, [cron, startDate, selectedSession])
 
     return (
         <>
@@ -43,24 +69,39 @@ function App() {
 
             <hr style={{margin: '.5em 0'}}/>
 
+
+            <div style={{margin: '3em'}}>
+                <label style={{marginTop: '.25em'}} htmlFor="start">Conference Session</label>
+                <Select
+                    options={sessions}
+                    value={selectedSession || null}
+                    onChange={(v) => setSelectedSession(v)}
+                />
+            </div>
+
+            <hr style={{margin: '.5em 0'}}/>
             <label style={{marginTop: '.25em'}} htmlFor="start">Podcast Feed URL</label>
+
             <div style={{display: 'flex', gap: '1em'}}>
-            <input
-                onFocus={(e) => {
-                    e.target.select()
-                    navigator.clipboard.writeText(feedUrl);
-                }}
-                value={feedUrl}
-            />
-            <button
-                onClick={() => {
-                    navigator.clipboard.writeText(feedUrl).then(function () {
-                        alert('Podcast Feed copied!');
-                    }, function (err) {
-                        console.error('Could not copy text: ', err);
-                    });
-                }}
-            >Copy to Clipboard</button>
+
+
+                <input
+                    onFocus={(e) => {
+                        e.target.select()
+                        navigator.clipboard.writeText(feedUrl);
+                    }}
+                    value={feedUrl}
+                />
+                <button
+                    onClick={() => {
+                        navigator.clipboard.writeText(feedUrl).then(function () {
+                            alert('Podcast Feed copied!');
+                        }, function (err) {
+                            console.error('Could not copy text: ', err);
+                        });
+                    }}
+                >Copy to Clipboard
+                </button>
             </div>
             <hr style={{margin: '.5em 0'}}/>
 

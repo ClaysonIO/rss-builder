@@ -4,13 +4,13 @@ import fs from 'fs';
 (async () => {
     // Launch the browser and open a new blank page
     const browser = await puppeteer.launch({
-        headless: false, fullPage: true, defaultViewport: null, args: ['--start-maximized']
+        headless: true, fullPage: true, defaultViewport: null, args: ['--start-maximized']
     });
     const page = await browser.newPage();
 
 
     const years = []
-    for(let i = 2000; i <= 2024; i++){
+    for(let i = 2020; i <= 2024; i++){
         years.push(`${i}_04`)
         years.push(`${i}_10`)
     }
@@ -40,14 +40,14 @@ import fs from 'fs';
                     const childrenTextContent = getTextContent(anchor);
 
                     if (childrenTextContent.length === 4) return null;
-                    if (childrenTextContent[0].includes('Church Auditing Department Report')
-                        || childrenTextContent[0].includes('Statistical Report')
-                        || childrenTextContent[0].includes('Session')
-                        || childrenTextContent[0].includes('Sustaining of General Authorities')
-                        || childrenTextContent[1].includes('Church Auditing Department Report')
-                        || childrenTextContent[1].includes('Session')
-                        || childrenTextContent[1].includes('Statistical Report')
-                        || childrenTextContent[1].includes('Sustaining of General Authorities')
+                    if (childrenTextContent[0]?.includes('Church Auditing Department Report')
+                        || childrenTextContent[0]?.includes('Statistical Report')
+                        || childrenTextContent[0]?.includes('Session')
+                        || childrenTextContent[0]?.includes('Sustaining of General Authorities')
+                        || childrenTextContent[1]?.includes('Church Auditing Department Report')
+                        || childrenTextContent[1]?.includes('Session')
+                        || childrenTextContent[1]?.includes('Statistical Report')
+                        || childrenTextContent[1]?.includes('Sustaining of General Authorities')
                     ) return null;
 
                     return {

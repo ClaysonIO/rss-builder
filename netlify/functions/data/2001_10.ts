@@ -1,4 +1,4 @@
-export const Posts_2001_10 = [
+const Posts_2001_10 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2001/10/living-in-the-fulness-of-times?lang=eng",
     "title": "Living in the Fulness of Times",
@@ -233,4 +233,5 @@ export const Posts_2001_10 = [
     "speaker": "",
     "audioUrl": ""
   }
-]
+] 
+ export default Posts_2001_10

@@ -1,4 +1,4 @@
-export const Posts_2006_04 = [
+const Posts_2006_04 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2006/04/to-act-for-ourselves-the-gift-and-blessings-of-agency?lang=eng",
     "title": "To Act for Ourselves: The Gift and Blessings of Agency",
@@ -39,7 +39,7 @@ export const Posts_2006_04 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2006/04/i-will-remember-your-sins-no-more?lang=eng",
     "title": "“I Will Remember Your Sins No More”",
     "speaker": "Boyd K. Packer",
-    "audioUrl": ""
+    "audioUrl": "https://media2.ldscdn.org/assets/general-conference/april-2006-general-conference/2006-04-2040-president-boyd-k-packer-64k-eng.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2006/04/that-we-may-always-have-his-spirit-to-be-with-us?lang=eng",
@@ -215,4 +215,5 @@ export const Posts_2006_04 = [
     "speaker": "",
     "audioUrl": ""
   }
-]
+] 
+ export default Posts_2006_04

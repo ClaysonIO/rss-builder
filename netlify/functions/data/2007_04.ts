@@ -1,4 +1,4 @@
-export const Posts_2007_04 = [
+const Posts_2007_04 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2007/04/the-sustaining-of-church-officers?lang=eng",
     "title": "The Sustaining of Church Officers",
@@ -246,4 +246,5 @@ export const Posts_2007_04 = [
     "description": "",
     "audioUrl": ""
   }
-]
+] 
+ export default Posts_2007_04

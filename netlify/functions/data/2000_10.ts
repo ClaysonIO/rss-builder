@@ -1,4 +1,4 @@
-export const Posts_2000_10 = [
+const Posts_2000_10 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2000/10/a-great-family-in-reverence-and-worship?lang=eng",
     "title": "A Great Family in Reverence and Worship",
@@ -239,4 +239,5 @@ export const Posts_2000_10 = [
     "speaker": "",
     "audioUrl": ""
   }
-]
+] 
+ export default Posts_2000_10

@@ -1,4 +1,4 @@
-export const Posts_2004_10 = [
+const Posts_2004_10 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2004/10/condition-of-the-church?lang=eng",
     "title": "Condition of the Church",
@@ -165,13 +165,13 @@ export const Posts_2004_10 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2004/10/we-did-this-for-you?lang=eng",
     "title": "We Did This for You",
     "speaker": "Elaine S. Dalton",
-    "audioUrl": ""
+    "audioUrl": "https://media2.ldscdn.org/assets/general-conference/october-2004-general-conference/2004-10-5020-elaine-s-dalton-64k-eng.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2004/10/keeping-our-covenants?lang=eng",
     "title": "Keeping Our Covenants",
     "speaker": "Richard J. Maynes",
-    "audioUrl": ""
+    "audioUrl": "https://media2.ldscdn.org/assets/general-conference/october-2004-general-conference/2004-10-5030-elder-richard-j-maynes-64k-eng.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2004/10/remember-the-teachings-of-your-father?lang=eng",
@@ -227,4 +227,5 @@ export const Posts_2004_10 = [
     "speaker": "",
     "audioUrl": ""
   }
-]
+] 
+ export default Posts_2004_10

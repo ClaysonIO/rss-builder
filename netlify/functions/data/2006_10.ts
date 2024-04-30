@@ -1,4 +1,4 @@
-export const Posts_2006_10 = [
+const Posts_2006_10 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2006/10/we-bear-testimony-to-the-world?lang=eng",
     "title": "We Bear Testimony to the World",
@@ -264,4 +264,5 @@ export const Posts_2006_10 = [
     "description": "",
     "audioUrl": "https://media2.ldscdn.org/assets/general-relief-society-meeting/2006-general-relief-society-meeting/2006-09-0000-general-relief-society-meeting-128k-eng.mp3?download=true"
   }
-]
+] 
+ export default Posts_2006_10

@@ -1,4 +1,4 @@
-export const Posts_2001_04 = [
+const Posts_2001_04 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2001/04/the-work-goes-on?lang=eng",
     "title": "The Work Goes On",
@@ -221,4 +221,5 @@ export const Posts_2001_04 = [
     "speaker": "",
     "audioUrl": ""
   }
-]
+] 
+ export default Posts_2001_04

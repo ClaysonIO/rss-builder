@@ -1,4 +1,4 @@
-export const Posts_2003_10 = [
+const Posts_2003_10 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2003/10/the-state-of-the-church?lang=eng",
     "title": "The State of the Church",
@@ -221,4 +221,5 @@ export const Posts_2003_10 = [
     "speaker": "",
     "audioUrl": ""
   }
-]
+] 
+ export default Posts_2003_10

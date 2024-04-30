@@ -1,4 +1,4 @@
-export const Posts_2002_10 = [
+const Posts_2002_10 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2002/10/o-that-i-were-an-angel-and-could-have-the-wish-of-mine-heart?lang=eng",
     "title": "“O That I Were an Angel, and Could Have the Wish of Mine Heart”",
@@ -15,13 +15,13 @@ export const Posts_2002_10 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2002/10/the-global-church-blessed-by-the-voice-of-the-prophets?lang=eng",
     "title": "The Global Church Blessed by the Voice of the Prophets",
     "speaker": "Dieter F. Uchtdorf",
-    "audioUrl": "https://media2.ldscdn.org/assets/general-conference/october-2002-general-conference/2002-10-1030-elder-dieter-f-uchtdorf-64k-eng.mp3?download=true"
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2002/10/a-voice-of-gladness-for-our-children?lang=eng",
     "title": "A Voice of Gladness for Our Children",
     "speaker": "Coleen K. Menlove",
-    "audioUrl": "https://media2.ldscdn.org/assets/general-conference/october-2002-general-conference/2002-10-1040-coleen-k-menlove-64k-eng.mp3?download=true"
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2002/10/encircled-in-the-arms-of-his-love?lang=eng",
@@ -147,7 +147,7 @@ export const Posts_2002_10 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2002/10/shall-he-find-faith-on-the-earth?lang=eng",
     "title": "Shall He Find Faith on the Earth?",
     "speaker": "Joseph B. Wirthlin",
-    "audioUrl": "https://media2.ldscdn.org/assets/general-conference/october-2002-general-conference/2002-10-5010-elder-joseph-b-wirthlin-64k-eng.mp3?download=true"
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2002/10/to-be-free-of-heavy-burdens?lang=eng",
@@ -215,4 +215,5 @@ export const Posts_2002_10 = [
     "speaker": "",
     "audioUrl": ""
   }
-]
+] 
+ export default Posts_2002_10
