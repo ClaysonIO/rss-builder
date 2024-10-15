@@ -15,7 +15,7 @@ export default async (req: Request, context: Context) => {
     const stamp = params.get('stamp');
 
     if(!sessions) return errorMessage('Session parameter is required.')
-    if(!sessions.split(',').map(y=>y.match(/^\d{4}_\d{2}$/)).find(x=>!x)) return errorMessage('Session parameter is invalid. Must be in the format of YYYY_MM.')
+    if(sessions.split(',').map(y=>y.match(/^\d{4}_\d{2}$/)).find(x=>x === null) === null) return errorMessage('Session parameter is invalid. Must be in the format of YYYY_MM.')
     if(!cron) return errorMessage('Cron parameter is required.')
     if(!start) return errorMessage('Start Date parameter is required.')
     if(!start.match(/^\d{4}-\d{2}-\d{2}$/)) return errorMessage('Start Date parameter is invalid. Must be in the format of YYYY-MM-DD.')
