@@ -57,7 +57,7 @@ function App() {
         setSelectedSession] = useState<{ value: string, label: string }[]>([sessions[0]])
 
     const feedUrl = useMemo(()=>{
-        return `${window.location.origin}/rss?session=${selectedSession?.map(x=>x.value).sort().join(',')}&cron=${encodeURIComponent(cron)}&startDate=${startDate}`
+        return `${window.location.origin}/rss?session=${selectedSession?.map(x=>x.value).join(',')}&cron=${encodeURIComponent(cron)}&startDate=${startDate}`
     }, [cron, startDate, selectedSession])
 
     return (
