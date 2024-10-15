@@ -10,8 +10,8 @@ import fs from 'fs';
 
 
     const years = []
-    for(let i = 2020; i <= 2024; i++){
-        years.push(`${i}_04`)
+    for(let i = 2024; i <= 2024; i++){
+        // years.push(`${i}_04`)
         years.push(`${i}_10`)
     }
 

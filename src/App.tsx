@@ -51,20 +51,20 @@ function App() {
     }
 
 
-    const sessions = generateSessions(2000, 2024, false);
+    const sessions = generateSessions(2000, 2024, true);
 
     const [selectedSession,
-        setSelectedSession] = useState<any>(sessions[0])
+        setSelectedSession] = useState<{ value: string, label: string }[]>([sessions[0]])
 
     const feedUrl = useMemo(()=>{
-        return `${window.location.origin}/rss?session=${selectedSession?.value}&cron=${encodeURIComponent(cron)}&startDate=${startDate}&stamp=${new Date().valueOf()}`
+        return `${window.location.origin}/rss?session=${selectedSession?.map(x=>x.value).sort().join(',')}&cron=${encodeURIComponent(cron)}&startDate=${startDate}`
     }, [cron, startDate, selectedSession])
 
     return (
         <>
             <h1>General Conference Feed Builder</h1>
             <p className="read-the-docs">
-                A simple builder to create a custom Podcast RSS feed from Spring 2024 General Conference talks.
+                A simple builder to create a custom Podcast RSS feed from <a href={'https://www.churchofjesuschrist.org/study/general-conference?lang=eng'} target={'_blank'}>General Conference</a> talks.
             </p>
 
             <hr style={{margin: '.5em 0'}}/>
@@ -74,8 +74,12 @@ function App() {
                 <label style={{marginTop: '.25em'}} htmlFor="start">Conference Session</label>
                 <Select
                     options={sessions}
-                    value={selectedSession || null}
-                    onChange={(v) => setSelectedSession(v)}
+                    value={selectedSession || []}
+                    onChange={(v) =>{
+                        // @ts-expect-error Not bothering to fix this right now
+                        setSelectedSession(v || [])}}
+                    isMulti={true}
+                    closeMenuOnSelect={false}
                 />
             </div>
 

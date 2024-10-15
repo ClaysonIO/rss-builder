@@ -9,13 +9,13 @@ export default async (req: Request, context: Context) => {
     const params = new URLSearchParams(url.search);
     const baseUrl = process.env.BASE_URL ?? 'https://rss.clayson.io'
 
-    const session = params.get('session') ?? '';
+    const sessions = params.get('session') ?? '';
     const cron = params.get('cron');
     const start = params.get('startDate');
     const stamp = params.get('stamp');
 
-    if(!session) return errorMessage('Session parameter is required.')
-    if(!session.match(/^\d{4}_\d{2}$/)) return errorMessage('Session parameter is invalid. Must be in the format of YYYY_MM.')
+    if(!sessions) return errorMessage('Session parameter is required.')
+    if(!sessions.split(',').map(y=>y.match(/^\d{4}_\d{2}$/)).find(x=>!x)) return errorMessage('Session parameter is invalid. Must be in the format of YYYY_MM.')
     if(!cron) return errorMessage('Cron parameter is required.')
     if(!start) return errorMessage('Start Date parameter is required.')
     if(!start.match(/^\d{4}-\d{2}-\d{2}$/)) return errorMessage('Start Date parameter is invalid. Must be in the format of YYYY-MM-DD.')
@@ -33,17 +33,27 @@ export default async (req: Request, context: Context) => {
     }
 
     try {
-        const posts = require(`./data/${session}.ts`).default
+        const posts = sessions.split(',')
+            .map(session=> require(`./data/${session}.ts`).default)
+            .flat()
 
-        const conferenceDate = dayjs(session.replace('_', '-'), 'YYYY-MM')
+        const firstSession = sessions.split(',')[0]
+        const lastSession = sessions.split(',')[sessions.split(',').length - 1]
+
+        const conferenceDateStart = dayjs(firstSession.replace('_', '-'), 'YYYY-MM')
+        const conferenceDateEnd = dayjs(lastSession.replace('_', '-'), 'YYYY-MM')
+
+        const titleDateRange = conferenceDateStart.diff(conferenceDateEnd, 'month') === 0
+            ? conferenceDateStart.format('MMM YYYY')
+            : conferenceDateStart.format('MMM YYYY') + ' - ' + conferenceDateEnd.format('MMM YYYY');
 
         const feed = createFeedFromData({
-            title: "General Conference Talks: " + conferenceDate.format('MMM YYYY'),
+            title: "General Conference Talks: " + titleDateRange,
             description: "Customizable conference talks feed",
             id: baseUrl,
             link: baseUrl,
             language: "en", // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
-            image: `${baseUrl}/image.png`,
+            image: `${baseUrl}/logo.png`,
             favicon: `${baseUrl}/favicon.ico`,
             copyright: "All talks are property of The Church of Jesus Christ of Latter-day Saints. This is an unofficial feed.",
             generator: "Feed for Node.js",
