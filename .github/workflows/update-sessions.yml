@@ -1,0 +1,39 @@
+name: Update Latest Sessions
+
+on:
+  schedule:
+    # Run on Tuesday, Wednesday, and Thursday after the first Sunday of April and October
+    # This cron expression stands for "At 00:00 on Tuesday, Wednesday, and Thursday in the 2nd week of April and October"
+    - cron: '0 0 0-11 4,10 *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  update-sessions:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Add latest session
+        run: npm run addLatestSession
+        
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+      - name: Commit and push changes
+        run: |
+          git add netlify/functions/data
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update latest session data [automated]"
+          git push origin main
