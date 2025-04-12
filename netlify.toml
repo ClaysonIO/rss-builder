@@ -7,3 +7,8 @@ status = 200
 from = "/rss/*"
 to = "/.netlify/functions/:splat"
 status = 200
+
+[[redirects]]
+from = "/sessions"
+to = "/.netlify/functions/sessions"
+status = 200

@@ -10,7 +10,7 @@ export default async (req: Request, context: Context) => {
     const baseUrl = process.env.BASE_URL ?? 'https://rss.clayson.io'
 
     const sessions = params.get('session') ?? '';
-    const cron = params.get('cron');
+    const cron = params.get('cron')?.replaceAll('_', ' ');
     const start = params.get('startDate');
     const stamp = params.get('stamp');
 
