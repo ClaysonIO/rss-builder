@@ -1,33 +1,33 @@
-import {type Context, Handler} from '@netlify/functions';
-import * as fs from 'fs';
-import * as path from 'path';
+import {type Context} from '@netlify/functions';
+import dayjs from "dayjs";
 
-function getAllFilesInData(): string[] {
+async function getAllFilesInData(): string[] {
     try {
-        // Try multiple possible paths that could work in Netlify Functions
-        const possiblePaths = [
-            path.join(process.cwd(), 'netlify/functions/data'),
-            path.join(process.cwd(), 'data'),
-            path.join(process.env.LAMBDA_TASK_ROOT || '', 'data'),
-            path.join(process.env.LAMBDA_TASK_ROOT || '', 'netlify/functions/data'),
-            path.join(process.env.LAMBDA_TASK_ROOT || '', '../functions-dist/data')
-        ];
+        let currentDate = dayjs('2000-04', 'YYYY-MM');
 
-        // Log all paths we're trying for debugging
-        console.log('Attempting to find data directory at:', possiblePaths);
+        let missedCounter = 0;
+        const sessionFiles: string[] = [];
 
-        // Find first path that exists
-        const dataPath = possiblePaths.find(p => fs.existsSync(p));
+        while (missedCounter < 3){
+            const fileName = `${currentDate.format('YYYY_MM')}.ts`
+            try{
 
-        if (!dataPath) {
-            console.error('Could not find data directory in any of the attempted paths');
-            return [];
+                const sessionModule = await require(`./data/${fileName}`);
+                if (!!sessionModule || !!sessionModule.default) {
+                    sessionFiles.push(fileName);
+                    console.log("FOUND FILE", fileName)
+                } else {
+                    missedCounter++;
+                }
+            } catch (e){
+                console.log("FILE NOT FOUND", fileName)
+                missedCounter++;
+            }
+            currentDate = currentDate.add(6, 'month')
         }
+        console.log("FOUND ALL FILES", sessionFiles)
+        return sessionFiles;
 
-        console.log('Found data directory at:', dataPath);
-        const files = fs.readdirSync(dataPath);
-        console.log('Files found:', files);
-        return files;
     } catch (error) {
         console.error('Error reading data directory:', error);
         return []; // Return empty array instead of throwing to prevent function failure
@@ -36,7 +36,7 @@ function getAllFilesInData(): string[] {
 
 export default async (req: Request, context: Context) => {
     try {
-        const files = getAllFilesInData();
+        const files = await getAllFilesInData();
 
         // Filter filenames to only include those in YYYY_MM format and remove .ts extension
         const sessionFiles = files
