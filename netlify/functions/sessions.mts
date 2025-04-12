@@ -29,7 +29,7 @@ export default async (req: Request, context: Context) => {
     } catch (error) {
         // Return an error response if anything goes wrong
         console.error('Error reading session files:', error);
-        return errorMessage({error: 'Failed to retrieve sessions'})
+        return errorMessage({error: `Failed to retrieve sessions: ${error}`})
     }
 };
 
