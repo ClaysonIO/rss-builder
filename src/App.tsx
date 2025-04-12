@@ -127,6 +127,7 @@ function App() {
     return (
         <div className="app-container">
             <header className="app-header">
+                <img src={'/logo.png'} style={{height: '50px', borderRadius: '10%'}} alt="logo" />
                 <h1>General Conference Feed Builder</h1>
                 <button 
                     className="theme-toggle"
@@ -138,7 +139,7 @@ function App() {
             </header>
             
             <p className="app-description">
-                A simple builder to create a custom Podcast RSS feed from <a href={'https://www.churchofjesuschrist.org/study/general-conference?lang=eng'} target={'_blank'}>General Conference</a> talks.
+                A simple builder to create a custom Podcast RSS feed from <a href={'https://www.churchofjesuschrist.org/study/general-conference?lang=eng'} target={'_blank'}>General Conference</a> talks of <a href={'https://www.churchofjesuschrist.org'} target={'_blank'}>The Church of Jesus Christ of Latter Day Saints</a>.
             </p>
 
             <div className="app-card">
@@ -162,7 +163,7 @@ function App() {
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                     <h2 className="card-title">Podcast Feed URL</h2>
 
-                    <img src={'/rss.png'} style={{height: '30px'}}/>
+                    <img src={'/rss.png'} style={{height: '30px'}} alt={'RSS symbol'}/>
                 </div>
                 <div className="feed-url-container">
                     <input
