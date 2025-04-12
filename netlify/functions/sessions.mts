@@ -4,20 +4,33 @@ import * as path from 'path';
 
 function getAllFilesInData(): string[] {
     try {
-        // For Netlify Functions, use path resolution through environment variables
-        const dataPath = path.resolve(process.env.LAMBDA_TASK_ROOT || '', '../functions-dist/data');
+        // Try multiple possible paths that could work in Netlify Functions
+        const possiblePaths = [
+            path.join(process.cwd(), 'netlify/functions/data'),
+            path.join(process.cwd(), 'data'),
+            path.join(process.env.LAMBDA_TASK_ROOT || '', 'data'),
+            path.join(process.env.LAMBDA_TASK_ROOT || '', 'netlify/functions/data'),
+            path.join(process.env.LAMBDA_TASK_ROOT || '', '../functions-dist/data')
+        ];
 
-        // Check if the directory exists
-        if (!fs.existsSync(dataPath)) {
-            console.error(`Directory does not exist: ${dataPath}`);
+        // Log all paths we're trying for debugging
+        console.log('Attempting to find data directory at:', possiblePaths);
+
+        // Find first path that exists
+        const dataPath = possiblePaths.find(p => fs.existsSync(p));
+
+        if (!dataPath) {
+            console.error('Could not find data directory in any of the attempted paths');
             return [];
         }
 
-        // Read all files in the data directory
-        return fs.readdirSync(dataPath);
+        console.log('Found data directory at:', dataPath);
+        const files = fs.readdirSync(dataPath);
+        console.log('Files found:', files);
+        return files;
     } catch (error) {
         console.error('Error reading data directory:', error);
-        throw new Error(`Directory does not exist: ${error}`);
+        return []; // Return empty array instead of throwing to prevent function failure
     }
 }
 

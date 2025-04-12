@@ -63,7 +63,9 @@ function App() {
     useEffect(()=>{
         getSessions().then(data => {
             setSessions(data);
-            setSelectedSession([data[0]]);
+            if(data.length > 0){
+                setSelectedSession([data[0]]);
+            }
         });
 
     }, [])
