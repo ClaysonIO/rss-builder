@@ -2,13 +2,28 @@ import {type Context, Handler} from '@netlify/functions';
 import * as fs from 'fs';
 import * as path from 'path';
 
-export default async (req: Request, context: Context) => {
+function getAllFilesInData(): string[] {
     try {
-        // Path to the data folder
-        const dataPath = path.join(__dirname, 'data');
+        // For Netlify Functions, use path resolution through environment variables
+        const dataPath = path.resolve(process.env.LAMBDA_TASK_ROOT || '', '../functions-dist/data');
+
+        // Check if the directory exists
+        if (!fs.existsSync(dataPath)) {
+            console.error(`Directory does not exist: ${dataPath}`);
+            return [];
+        }
 
         // Read all files in the data directory
-        const files = fs.readdirSync(dataPath);
+        return fs.readdirSync(dataPath);
+    } catch (error) {
+        console.error('Error reading data directory:', error);
+        throw new Error(`Directory does not exist: ${error}`);
+    }
+}
+
+export default async (req: Request, context: Context) => {
+    try {
+        const files = getAllFilesInData();
 
         // Filter filenames to only include those in YYYY_MM format and remove .ts extension
         const sessionFiles = files
