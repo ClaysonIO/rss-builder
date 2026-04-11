@@ -1,213 +1,248 @@
 const Posts_2026_04 = [
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/11oaks?lang=eng",
-    "title": "Introduction",
-    "speaker": "Dallin H. Oaks",
-    "audioUrl": "https://assets.churchofjesuschrist.org/065kn0zd5mrfs7it2ixgmz5j65sc25jdm2tymc1u-128k-en.mp3?download=true"
+    "title": "Dallin H. Oaks",
+    "speaker": "Introduction",
+    "description": "President Oaks explains that in a solemn assembly, members of the Church vote to sustain members of the First Presidency and the Quorum of the Twelve Apostles.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/12christofferson?lang=eng",
-    "title": "Solemn Assembly",
-    "speaker": "D. Todd Christofferson",
-    "audioUrl": "https://assets.churchofjesuschrist.org/sujtq4ksfdwqnrn7onwwi3v38j131q79vvm0lf4i-128k-en.mp3?download=true"
+    "title": "D. Todd Christofferson",
+    "speaker": "Solemn Assembly",
+    "description": "In a solemn assembly, President Christofferson presents the names of the First Presidency and Quorum of the Twelve Apostles for sustaining votes.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/13kearon?lang=eng",
-    "title": "About His Business",
-    "speaker": "Patrick Kearon",
-    "audioUrl": "https://assets.churchofjesuschrist.org/fa9olrfp6tpor391zmvyieersvwr31ka0fep0hup-128k-en.mp3?download=true"
+    "title": "Patrick Kearon",
+    "speaker": "About His Business",
+    "description": "Elder Kearon teaches that callings from the Lord are tailor-made for our growth and that when we respond to a call, we don t merely fill an assignment but join the Saviour in His redeeming work.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/14yee?lang=eng",
-    "title": "Ministering  That Ye Love One Another; as I Have Loved You ",
-    "speaker": "Kristin M. Yee",
-    "audioUrl": "https://assets.churchofjesuschrist.org/4f2spelejzldevzj894p3jsf5ctcv5ixme7eq3qs-128k-en.mp3?download=true"
+    "title": "Kristin M. Yee",
+    "speaker": "Ministering  That Ye Love One Another; as I Have Loved You ",
+    "description": "Sister Yee describes how Jesus Christ ministered and testifies of the blessings of ministering in His way.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/15gilbert?lang=eng",
-    "title": "Come Home",
-    "speaker": "Clark G. Gilbert",
-    "audioUrl": "https://assets.churchofjesuschrist.org/j8nliqaux226sufyimnvu59gu2ltv27tou2uwrm7-128k-en.mp3?download=true"
+    "title": "Clark G. Gilbert",
+    "speaker": "Come Home",
+    "description": "Elder Gilbert shares examples of people who found their way back to the gospel of Jesus Christ and teaches that Christ will help all to  come home. ",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/16bednar?lang=eng",
-    "title": "All Who Have Endured Valiantly",
-    "speaker": "David A. Bednar",
-    "audioUrl": "https://assets.churchofjesuschrist.org/zrcbiszst15rxdbhwuukflpsyqra0v2kbcjln34a-128k-en.mp3?download=true"
+    "title": "David A. Bednar",
+    "speaker": "All Who Have Endured Valiantly",
+    "description": "Elder Bednar teaches that enduring valiantly to the end means becoming more like Christ as we practice charity throughout our lives.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/17teh?lang=eng",
-    "title": "Follow the Prophet; He Knows the Way",
-    "speaker": "Michael John U. Teh",
-    "audioUrl": "https://assets.churchofjesuschrist.org/apr8hu31z2owmfezmq5xfj9r802bf5ohwa2crpxs-128k-en.mp3?download=true"
+    "title": "Michael John U. Teh",
+    "speaker": "Follow the Prophet; He Knows the Way",
+    "description": "Elder Teh teaches that following the teachings and example of prophets, seers, and revelators can help us come closer to Jesus Christ.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/18becerra?lang=eng",
-    "title": "Tithing Putting God First",
-    "speaker": "Jorge T. Becerra",
-    "audioUrl": "https://assets.churchofjesuschrist.org/e339lcvyoz47yjy9aywgzrkwxkvtnv24hhvyjkv9-128k-en.mp3?download=true"
+    "title": "Jorge T. Becerra",
+    "speaker": "Tithing Putting God First",
+    "description": "Elder Becerra teaches that we can put God first by obeying the law of tithing.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/19eyring?lang=eng",
-    "title": "Prayers for Peace",
-    "speaker": "Henry B. Eyring",
-    "audioUrl": "https://assets.churchofjesuschrist.org/yt6n7p2tzterftnvmqix247nahe8cjpkqvk1cct1-128k-en.mp3?download=true"
+    "title": "Henry B. Eyring",
+    "speaker": "Prayers for Peace",
+    "description": "President Eyring teaches that turning to Heavenly Father in fervent prayer will bring peace and abiding support.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/23stevenson?lang=eng",
-    "title": "Lost Luggage, Redeemed Souls",
-    "speaker": "Gary E. Stevenson",
-    "audioUrl": "https://assets.churchofjesuschrist.org/0gh8vferugnavn1voi14tchoriigg2dw0nfsp819-128k-en.mp3?download=true"
+    "title": "Gary E. Stevenson",
+    "speaker": "Lost Luggage, Redeemed Souls",
+    "description": "Elder Stevenson teaches that we can help each other return safely to God as we serve in ministering assignments and nurture the rising generation.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/24ortega?lang=eng",
-    "title": "Christ Author and Finisher of Our Faith",
-    "speaker": "Eduardo F. Ortega",
-    "audioUrl": "https://assets.churchofjesuschrist.org/fi7tiszje7a0j3m014kitbwgttdqyvpllddpkabd-128k-en.mp3?download=true"
+    "title": "Eduardo F. Ortega",
+    "speaker": "Christ Author and Finisher of Our Faith",
+    "description": "Elder Ortega teaches that becoming a lifelong disciple of Jesus Christ is a process of daily personal and spiritual events.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/25wu?lang=eng",
-    "title": " I Will Give Away All My Sins to Know Thee ",
-    "speaker": "Wan-Liang Wu",
-    "audioUrl": "https://assets.churchofjesuschrist.org/rb5poiwuy9phqo6zuc8ew7xsv73uto9rq9zsy5zj-128k-en.mp3?download=true"
+    "title": "Wan-Liang Wu",
+    "speaker": " I Will Give Away All My Sins to Know Thee ",
+    "description": "Elder Wu teaches that coming unto Christ is more than just learning of Christ. It includes faith, repentance, and conversion.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/26wunderli?lang=eng",
-    "title": "Jesus Christ Is Not Our Burden; He Is Our Relief",
-    "speaker": "David J. Wunderli",
-    "audioUrl": "https://assets.churchofjesuschrist.org/5c0dnq676ig81cycgqy82t6d97du1t2hmevncngd-128k-en.mp3?download=true"
+    "title": "David J. Wunderli",
+    "speaker": "Jesus Christ Is Not Our Burden; He Is Our Relief",
+    "description": "Brother Wunderli teaches that Jesus Christ brings relief and eases our burdens.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/27causse?lang=eng",
-    "title": "Love All; Love Each",
-    "speaker": "G rald Causs ",
-    "audioUrl": "https://assets.churchofjesuschrist.org/p7xaqzuzxvl8dth3j60b8uk79mepp92agxre7l2t-128k-en.mp3?download=true"
+    "title": "G rald Causs ",
+    "speaker": "Love All; Love Each",
+    "description": "Elder Causs  teaches that as disciples of Jesus Christ, we bear witness of Him whenever we share His love with all around us and help it take root in each person we meet.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/28holmes?lang=eng",
-    "title": "Jesus Christ Is the Way",
-    "speaker": "Brian J. Holmes",
-    "audioUrl": "https://assets.churchofjesuschrist.org/ybwz3ejkmkfijcgrctc3diaebfqede7i209d76ew-128k-en.mp3?download=true"
+    "title": "Brian J. Holmes",
+    "speaker": "Jesus Christ Is the Way",
+    "description": "Elder Holmes teaches that the only way to eternal life is to have faith in Jesus Christ and follow Him and His servants on the covenant path.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/29matswagothata?lang=eng",
-    "title": "He Knows You by Name",
-    "speaker": "Clement M. Matswagothata",
-    "audioUrl": "https://assets.churchofjesuschrist.org/4zpq2ym21gbmzl19b0c831h5h7js2yh25js13d70-128k-en.mp3?download=true"
+    "title": "Clement M. Matswagothata",
+    "speaker": "He Knows You by Name",
+    "description": "Elder Matswagothata teaches that the Savior knows us by name and will guide us through every season of life.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/210soares?lang=eng",
-    "title": "Jesus Christ the True Vine",
-    "speaker": "Ulisses Soares",
-    "audioUrl": "https://assets.churchofjesuschrist.org/0gjd6w02gis5gtv069vclwknyjql4p8akdd3jts9-128k-en.mp3?download=true"
+    "title": "Ulisses Soares",
+    "speaker": "Jesus Christ the True Vine",
+    "description": "Elder Soares explains how Jesus Christ is like a vine that gives us spiritual nourishment as we choose to abide in Him.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/41uchtdorf?lang=eng",
-    "title": "Encounter at the Empty Tomb",
-    "speaker": "Dieter F. Uchtdorf",
-    "audioUrl": "https://assets.churchofjesuschrist.org/r25iylnzloy3drk96cz9q5nmmgm98e4fvibperlq-128k-en.mp3?download=true"
+    "title": "Dieter F. Uchtdorf",
+    "speaker": "Encounter at the Empty Tomb",
+    "description": "President Uchtdorf teaches about the women who first saw the empty tomb and bore witness of Christ s Resurrection and invites all of us to have a similar spiritual encounter and testimony.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/42freeman?lang=eng",
-    "title": "Best Days and Worst Days",
-    "speaker": "Emily Belle Freeman",
-    "audioUrl": "https://assets.churchofjesuschrist.org/399xzzcdtaxbyusiq3w6e5yn12mo8s0to58bzv1v-128k-en.mp3?download=true"
+    "title": "Emily Belle Freeman",
+    "speaker": "Best Days and Worst Days",
+    "description": "President Freeman testifies that on our best days and on our worst days, we can receive strength as we walk with Christ and hold fast to His eternal truths.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/43larreal?lang=eng",
-    "title": "I Feel My Savior s Love",
-    "speaker": "Pedro X. Larreal",
-    "audioUrl": "https://assets.churchofjesuschrist.org/s9uezgcrou2i3gh93s57lxhbkbuwag7msg6yp161-128k-en.mp3?download=true"
+    "title": "Pedro X. Larreal",
+    "speaker": "I Feel My Savior s Love",
+    "description": "Elder Larreal teaches that the sacrament is a reminder of the great love Christ has for us.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/44rowe?lang=eng",
-    "title": "Choose Jesus Christ as Your Guide",
-    "speaker": "Edward B. Rowe",
-    "audioUrl": "https://assets.churchofjesuschrist.org/3i2e4fzzftrdjr7m8fxdx8vguib7h70asumdgnwd-128k-en.mp3?download=true"
+    "title": "Edward B. Rowe",
+    "speaker": "Choose Jesus Christ as Your Guide",
+    "description": "Elder Rowe teaches that Jesus Christ can guide us through life s journey as we listen to His Spirit.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/45rasband?lang=eng",
-    "title": "He Is Risen",
-    "speaker": "Ronald A. Rasband",
-    "audioUrl": "https://assets.churchofjesuschrist.org/y7gqrc06qwccv2m11f9tqzh6wp7ff9ucemgqq18g-128k-en.mp3?download=true"
+    "title": "Ronald A. Rasband",
+    "speaker": "He Is Risen",
+    "description": "Elder Rasband shares the accounts of Jesus Christ s Resurrection in the Bible and Book of Mormon, along with His own witness as an Apostle.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/46renlund?lang=eng",
-    "title": "Because of Jesus Christ",
-    "speaker": "Dale G. Renlund",
-    "audioUrl": "https://assets.churchofjesuschrist.org/zl46y0kbbduibglsnxodxiz1crz0wqzimduxn25r-128k-en.mp3?download=true"
+    "title": "Dale G. Renlund",
+    "speaker": "Because of Jesus Christ",
+    "description": "Elder Renlund teaches that focusing on Jesus Christ and His Atonement will bring joy and clarity to our lives.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/47mutombo?lang=eng",
-    "title": "The Joy of a Covenant Relationship with God",
-    "speaker": "Thierry K. Mutombo",
-    "audioUrl": "https://assets.churchofjesuschrist.org/5sjq7nipv3hcxb6nf8sjg0j74udigyact0qj16cg-128k-en.mp3?download=true"
+    "title": "Thierry K. Mutombo",
+    "speaker": "The Joy of a Covenant Relationship with God",
+    "description": "Elder Mutombo describes how Heavenly Father extends His love to us through the Atonement of Jesus Christ and our covenants with Him.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/48walker?lang=eng",
-    "title": "A Peculiar Treasure",
-    "speaker": "Alan R. Walker",
-    "audioUrl": "https://assets.churchofjesuschrist.org/t69cad4xyzicz6zqrrqour8v6528jyztmctb6a5d-128k-en.mp3?download=true"
+    "title": "Alan R. Walker",
+    "speaker": "A Peculiar Treasure",
+    "description": "Elder Walker teaches that we can be a peculiar treasure to the Lord if we obey His voice and keep His covenant.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/49oaks?lang=eng",
-    "title": "Alive in Christ",
-    "speaker": "Dallin H. Oaks",
-    "audioUrl": "https://assets.churchofjesuschrist.org/tco9uxq9rmy3218fxamd9whrr6m2nvwfzcp27l42-128k-en.mp3?download=true"
+    "title": "Dallin H. Oaks",
+    "speaker": "Alive in Christ",
+    "description": "President Oaks teaches us to avoid contention, to be peacemakers, and to strive to be holy.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/51christofferson?lang=eng",
-    "title": "The Character of Christ",
-    "speaker": "D. Todd Christofferson",
-    "audioUrl": "https://assets.churchofjesuschrist.org/e7w4rp9xbff65fi0i7dqbf3qzffk3mpdsba8ijtp-128k-en.mp3?download=true"
+    "title": "D. Todd Christofferson",
+    "speaker": "The Character of Christ",
+    "description": "President Christofferson teaches that emulating the character of Christ will help us become who we need to be.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/52wong?lang=eng",
-    "title": "Remember, Remember",
-    "speaker": "Chi Hong (Sam) Wong",
-    "audioUrl": "https://assets.churchofjesuschrist.org/68jm6mvckrcej07n1cba1gmrs3nlbvw2mzky5miv-128k-en.mp3?download=true"
+    "title": "Chi Hong (Sam) Wong",
+    "speaker": "Remember, Remember",
+    "description": "Using five scriptures from the Book of Mormon, Elder Wong shares what God wants us to remember.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/53hall?lang=eng",
-    "title": "I Glory in My Jesus",
-    "speaker": "Aaron T. Hall",
-    "audioUrl": "https://assets.churchofjesuschrist.org/7o7cq78jmiwkkgvjzo2kbl4o1bq4syk8fl9alce8-128k-en.mp3?download=true"
+    "title": "Aaron T. Hall",
+    "speaker": "I Glory in My Jesus",
+    "description": "Elder Hall teaches about the mercy, love, and saving power of Jesus Christ.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/54porter?lang=eng",
-    "title": " Here Am I, Send Me ",
-    "speaker": "Susan H. Porter",
-    "audioUrl": "https://assets.churchofjesuschrist.org/x9clbk1xcjl7zti5thezkcufxt5s72yj5ncfll82-128k-en.mp3?download=true"
+    "title": "Susan H. Porter",
+    "speaker": " Here Am I, Send Me ",
+    "description": "President Porter teaches that, like the boy who shared his loaves and fishes, children can make a difference.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/55andersen?lang=eng",
-    "title": "Eternal Marriage Is an Eternal Journey",
-    "speaker": "Neil L. Andersen",
-    "audioUrl": "https://assets.churchofjesuschrist.org/y66s81zg8ikr2l0d956z37tsarcopzexcogr8u99-128k-en.mp3?download=true"
+    "title": "Neil L. Andersen",
+    "speaker": "Eternal Marriage Is an Eternal Journey",
+    "description": "Elder Andersen teaches about the responsibilities and blessings of the marriage covenant.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/56cook?lang=eng",
-    "title": "Keys, Covenants, and Easter",
-    "speaker": "Quentin L. Cook",
-    "audioUrl": "https://assets.churchofjesuschrist.org/a0ikyusnmid6yi75wh1eoflwzejxbsulqqdo4kzt-128k-en.mp3?download=true"
+    "title": "Quentin L. Cook",
+    "speaker": "Keys, Covenants, and Easter",
+    "description": "Elder Cook teaches that the appearance of the Savior to the Prophet Joseph Smith and the keys committed by Moses, Elias, and Elijah are central to the Restoration of the gospel of Jesus Christ.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/57wakolo?lang=eng",
-    "title": "Come unto Christ Together",
-    "speaker": "Taniela B. Wakolo",
-    "audioUrl": "https://assets.churchofjesuschrist.org/rt3ruv05ut32ntskcxl629lb9vd6oafafg8hhrtl-128k-en.mp3?download=true"
+    "title": "Taniela B. Wakolo",
+    "speaker": "Come unto Christ Together",
+    "description": "Elder Wakolo teaches that as we are faithful and patient in our discipleship, the Lord will fulfill His promises.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/58gong?lang=eng",
-    "title": " Tis Eastertide: No One Walks Alone",
-    "speaker": "Gerrit W. Gong",
-    "audioUrl": "https://assets.churchofjesuschrist.org/ca6qcutqpwsky40azve38ch9gck5kk11qlkiwg00-128k-en.mp3?download=true"
+    "title": "Gerrit W. Gong",
+    "speaker": " Tis Eastertide: No One Walks Alone",
+    "description": "Elder Gong teaches that as we faithfully keep our covenants, we will come to know Jesus Christ and He will abide with us.",
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/59oaks?lang=eng",
-    "title": "Closing Remarks",
-    "speaker": "Dallin H. Oaks",
-    "audioUrl": "https://assets.churchofjesuschrist.org/l66awxxycj8ifet93izjar84wvvu7k2ioj5mupz6-128k-en.mp3?download=true"
+    "title": "Dallin H. Oaks",
+    "speaker": "Closing Remarks",
+    "description": "President Oaks teaches that as we focus on Jesus Christ and study the teachings from conference, we will receive personal revelation and guidance.",
+    "audioUrl": ""
   }
 ] 
  export default Posts_2026_04
