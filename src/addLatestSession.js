@@ -2,7 +2,27 @@ import puppeteer from 'puppeteer';
 import fs from 'fs';
 import dayjs from "dayjs";
 
-
+/**
+ * Puppeteer's default click() uses hit-testing (center-point must be unobstructed). That often
+ * fails in headless CI (small viewport, sticky chrome, overlays). Scroll into view and use a
+ * real DOM click instead.
+ */
+async function clickConferenceLink(page, hrefPath) {
+    // Keep evaluate synchronous — async page.evaluate can trigger "Promise was collected" in Puppeteer.
+    await page.evaluate((path) => {
+        const el = [...document.querySelectorAll('a[href]')].find(
+            (a) => a.getAttribute('href') === path
+        );
+        if (!el) {
+            throw new Error(`Anchor not found for href: ${path}`);
+        }
+        el.scrollIntoView({ block: 'center', inline: 'nearest' });
+        el.click();
+    }, hrefPath);
+    if (process.env.GITHUB_ACTIONS) {
+        await new Promise((resolve) => setTimeout(resolve, 75));
+    }
+}
 
 
 (async () => {
@@ -12,10 +32,16 @@ import dayjs from "dayjs";
 
     // Launch the browser and open a new blank page
     const browser = await puppeteer.launch({
-        headless: true, fullPage: true, defaultViewport: null, args: launchArgs
+        headless: true,
+        fullPage: true,
+        defaultViewport: process.env.GITHUB_ACTIONS ? { width: 1920, height: 1080 } : null,
+        args: launchArgs
     });
     const page = await browser.newPage();
-
+    if (process.env.GITHUB_ACTIONS) {
+        page.setDefaultNavigationTimeout(120000);
+        page.setDefaultTimeout(120000);
+    }
 
     const years = []
 
@@ -35,8 +61,12 @@ import dayjs from "dayjs";
 
     for (let year of years) {
 
-        // Navigate the page to a URL
-        await page.goto(`https://www.churchofjesuschrist.org/study/general-conference/${year.replace('_', '/')}?lang=eng`);
+        // Navigate the page to a URL (CI/Docker networks can exceed Puppeteer's 30s default)
+        const conferenceUrl = `https://www.churchofjesuschrist.org/study/general-conference/${year.replace('_', '/')}?lang=eng`;
+        await page.goto(
+            conferenceUrl,
+            process.env.GITHUB_ACTIONS ? { waitUntil: 'domcontentloaded' } : {}
+        );
 
 
         const links = await page.$$eval('a', anchors => {
@@ -83,40 +113,42 @@ import dayjs from "dayjs";
 
         console.log("LINKS", links.length);
         console.log("UNIQUE LINKS", uniqueLinks.length);
-        // Click the button with the title of 'Options'
 
         try {
             await page.click('button[title="Options"]');
-            let openedDownloads = false;
+        } catch (error) {
+            console.log("Error clicking Options button", error);
+        }
 
+        let openedDownloads = false;
 
-            for (let link of uniqueLinks) {
-                await page.click('a[href="' + link.node + '"]');
+        for (let link of uniqueLinks) {
+            try {
+                await clickConferenceLink(page, link.node);
                 try {
                     if (!openedDownloads) {
                         await new Promise((resolve) => setTimeout(resolve, 3000));
-                        await page.waitForSelector('div[data-testId=download-menu-label]', {timeout: 3000});
-//
+                        await page.waitForSelector('div[data-testId=download-menu-label]', { timeout: 3000 });
                         await page.click('div[data-testId=download-menu-label]');
                         console.log("Clicked Download button");
-                        openedDownloads = true
+                        openedDownloads = true;
                     }
-                } catch (error) {
+                } catch {
                     console.log(`Download button not found for ${link.speaker}. Skipping...`);
                 }
                 try {
-                    // Wait for the 'downloadLink' element to be visible for up to 3 seconds
-                    await page.waitForSelector('a[data-testId=download-link-0]', {timeout: 1000});
-                    // If the 'downloadLink' element is found, get its href
-                    const downloadLink = await page.$eval('a[data-testId=download-link-0]', anchor => anchor.getAttribute('href'));
+                    await page.waitForSelector('a[data-testId=download-link-0]', { timeout: 1000 });
+                    const downloadLink = await page.$eval('a[data-testId=download-link-0]', (anchor) =>
+                        anchor.getAttribute('href')
+                    );
                     link.audioUrl = downloadLink;
                     console.log("DOWNLOAD LINK", downloadLink);
-                } catch (error) {
+                } catch {
                     console.log(`Download link not found for ${link.speaker}. Skipping...`);
                 }
+            } catch (error) {
+                console.log(`Error processing ${link.speaker}:`, error.message || error);
             }
-        } catch (error) {
-            console.log("Error clicking Options button", error);
         }
 
         // Save the links to a JSON file
