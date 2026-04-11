@@ -6,9 +6,13 @@ import dayjs from "dayjs";
 
 
 (async () => {
+    const launchArgs = process.env.GITHUB_ACTIONS
+        ? ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+        : ['--start-maximized'];
+
     // Launch the browser and open a new blank page
     const browser = await puppeteer.launch({
-        headless: true, fullPage: true, defaultViewport: null, args: ['--start-maximized']
+        headless: true, fullPage: true, defaultViewport: null, args: launchArgs
     });
     const page = await browser.newPage();
 
