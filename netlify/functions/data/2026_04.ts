@@ -57,7 +57,7 @@ const Posts_2026_04 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/23stevenson?lang=eng",
     "title": "Lost Luggage, Redeemed Souls",
     "speaker": "Gary E. Stevenson",
-    "audioUrl": ""
+    "audioUrl": "https://assets.churchofjesuschrist.org/0gh8vferugnavn1voi14tchoriigg2dw0nfsp819-128k-en.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/24ortega?lang=eng",
@@ -99,13 +99,13 @@ const Posts_2026_04 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/210soares?lang=eng",
     "title": "Jesus Christ the True Vine",
     "speaker": "Ulisses Soares",
-    "audioUrl": ""
+    "audioUrl": "https://assets.churchofjesuschrist.org/0gjd6w02gis5gtv069vclwknyjql4p8akdd3jts9-128k-en.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/41uchtdorf?lang=eng",
     "title": "Encounter at the Empty Tomb",
     "speaker": "Dieter F. Uchtdorf",
-    "audioUrl": ""
+    "audioUrl": "https://assets.churchofjesuschrist.org/r25iylnzloy3drk96cz9q5nmmgm98e4fvibperlq-128k-en.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/04/42freeman?lang=eng",
