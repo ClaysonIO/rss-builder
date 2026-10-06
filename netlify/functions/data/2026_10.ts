@@ -51,7 +51,7 @@ const Posts_2026_10 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/21renlund?lang=eng",
     "title": " How Long Will It Be Ere They Believe Me? ",
     "speaker": "Dale G. Renlund",
-    "audioUrl": ""
+    "audioUrl": "https://assets.churchofjesuschrist.org/0vzuoqkfrwy8ycxfqz3ubaxk5uxqh73am64p94jk-128k-en.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/22farnes?lang=eng",
@@ -165,13 +165,13 @@ const Posts_2026_10 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/51uchtdorf?lang=eng",
     "title": "Christ-Centered Unity",
     "speaker": "Dieter F. Uchtdorf",
-    "audioUrl": ""
+    "audioUrl": "https://assets.churchofjesuschrist.org/b4y3cla1vlc8m15hyt3eshxhimoj4xn783d2gjhb-128k-en.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/52munoz-spannaus?lang=eng",
     "title": "God Is at Your Side",
     "speaker": "Andrea Mu oz Spannaus",
-    "audioUrl": ""
+    "audioUrl": "https://assets.churchofjesuschrist.org/m9a9m0vhqhnzsuwbwjnvbapsqzsgf3dd9msstgcr-128k-en.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/53villanueva?lang=eng",
@@ -183,13 +183,13 @@ const Posts_2026_10 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/54bednar?lang=eng",
     "title": "Sealed by the Holy Spirit of Promise",
     "speaker": "David A. Bednar",
-    "audioUrl": ""
+    "audioUrl": "https://assets.churchofjesuschrist.org/udj06amada3jkq3nj3gygh0nd0hr2jh178n0p85t-128k-en.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/55lebethoa?lang=eng",
     "title": "Jesus Christ Is the Light and Life of the World",
     "speaker": "Thabo Lebethoa",
-    "audioUrl": ""
+    "audioUrl": "https://assets.churchofjesuschrist.org/a0q3t6v8mm4z5by2btufuwz7pzer8l4agm4n362y-128k-en.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/56sinclair?lang=eng",
