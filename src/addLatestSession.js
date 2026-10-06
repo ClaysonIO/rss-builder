@@ -151,6 +151,12 @@ async function clickConferenceLink(page, hrefPath) {
             }
         }
 
+        // Don't overwrite existing data if the conference page isn't up yet or failed to load
+        if (uniqueLinks.length === 0) {
+            console.log(`No talks found for ${year}; leaving data unchanged.`);
+            continue;
+        }
+
         // Save the links to a JSON file
         fs.writeFileSync(`./netlify/functions/data/${year}.ts`, `const Posts_${year} = ${JSON.stringify(uniqueLinks.map(x => ({
             ...x, node: undefined
