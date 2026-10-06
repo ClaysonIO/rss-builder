@@ -2,41 +2,78 @@ name: Update Latest Sessions
 
 on:
   schedule:
-    # GitHub schedule cannot combine day-of-month with day-of-week. Run daily at 00:00 UTC
-    # during days 8-14 of April and October (typical general conference window).
-    - cron: '0 0 8-14 4,10 *'
-  workflow_dispatch: # Allow manual triggering
+    # GitHub cron cannot express "the 7 days after the first Sunday", so this fires every
+    # 6 hours on days 1-15 of April and October, and the "Check conference window" step
+    # below skips any run that isn't within the 7 days following the first Sunday.
+    # Talks/audio are published over several days, hence the repeated runs.
+    - cron: '17 */6 1-15 4,10 *'
+  workflow_dispatch: # Allow manual triggering (always runs, ignoring the window check)
 
 permissions:
   contents: write
+
+concurrency:
+  group: update-sessions
+  cancel-in-progress: false
 
 jobs:
   update-sessions:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check conference window
+        id: window
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          year=$(date -u +%Y)
+          month=$(date -u +%m)
+          day=$(date -u +%-d)
+          # %u: 1=Monday ... 7=Sunday
+          first_dow=$(date -u -d "${year}-${month}-01" +%u)
+          first_sunday=$(( 1 + (7 - first_dow) % 7 ))
+          echo "Today is ${year}-${month}-${day}; first Sunday is day ${first_sunday}"
+          if [ "$day" -gt "$first_sunday" ] && [ "$day" -le $(( first_sunday + 7 )) ]; then
+            echo "Within the 7 days after the first Sunday; running."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Outside the conference window; skipping."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Checkout repository
+        if: steps.window.outputs.run == 'true'
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Set up Node.js
+        if: steps.window.outputs.run == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: 'npm'
 
       - name: Install dependencies
+        if: steps.window.outputs.run == 'true'
         run: npm ci
 
       - name: Add latest session
+        if: steps.window.outputs.run == 'true'
         run: npm run addLatestSession
 
-      - name: Configure Git
+      - name: Commit and push changes to main
+        if: steps.window.outputs.run == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-
-      - name: Commit and push changes
-        run: |
           git add netlify/functions/data
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update latest session data [automated]"
-          git push origin "HEAD:${{ github.ref_name }}"
+          if git diff --staged --quiet; then
+            echo "No data changes."
+            exit 0
+          fi
+          git commit -m "Update latest session data [automated]"
+          git pull --rebase origin main
+          git push origin HEAD:main
