@@ -1,10 +1,6 @@
 import {Feed} from "@numbered/feed";
 import dayjs from "dayjs";
-import {parseCronExpression} from "cron-schedule";
-
-function isValidDate(d: any) {
-    return d instanceof Date && !isNaN(d);
-}
+import type {ScheduledPost} from "./schedulePosts";
 
 export function createFeedFromData({
                                        title,
@@ -17,8 +13,6 @@ export function createFeedFromData({
                                        copyright,
                                        generator,
                                        author,
-                                       start,
-                                       cron,
                                        posts
                                    }: {
     title: string,
@@ -34,9 +28,7 @@ export function createFeedFromData({
         name: string,
         link: string
     },
-    start: string,
-    cron: string,
-    posts: { href: string,  title: string, audioUrl: string, speaker: string }[]
+    posts: ScheduledPost[]
 }) {
 
     const feed = new Feed({
@@ -52,37 +44,23 @@ export function createFeedFromData({
         author
     });
 
-    const startDate = dayjs(start, 'YYYY-MM-DD').startOf('day').toDate();
-    const cronGenerator = parseCronExpression(cron)
-        .getNextDatesIterator(startDate, dayjs().add(1, 'd').toDate());
-
-    let iterator = 0;
-
-
-    while (iterator < posts.length) {
-        const post = posts[iterator];
-        const date = cronGenerator.next().value;
-
-        if (!post || !date || !isValidDate(date)) break;
+    for (const post of posts) {
         feed.addItem({
             title: post.title,
-            id: post.audioUrl,
+            id: post.id,
             link: post.href,
             description: post.speaker,
             author: [{
                 name: post.speaker,
                 email: ''
             }],
-            date: dayjs(date).subtract(1, 'day').startOf('day').toDate(),
+            date: dayjs(post.date).subtract(1, 'day').startOf('day').toDate(),
             enclosure: {
                 url: post.audioUrl,
                 type: "audio/mpeg",
                 length: 0
             }
         });
-
-
-        iterator++;
     }
 
     return feed;
