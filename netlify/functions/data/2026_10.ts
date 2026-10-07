@@ -153,13 +153,13 @@ const Posts_2026_10 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/48schmeil?lang=eng",
     "title": "Consider Your Ways, and from This Day Will the Lord Bless You",
     "speaker": "Ciro Schmeil",
-    "audioUrl": "https://assets.churchofjesuschrist.org/i2ssd6ublrjcayx3t0rlc5bhbfj4nbn7m4tjjdv3-128k-en.mp3?download=true"
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/49oaks?lang=eng",
     "title": "The Gospel of Jesus Christ Is for All",
     "speaker": "Dallin H. Oaks",
-    "audioUrl": "https://assets.churchofjesuschrist.org/2p6vsgsei45cmqjyx09xqe0g3va9h8zd9rsoh45z-128k-en.mp3?download=true"
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/51uchtdorf?lang=eng",
