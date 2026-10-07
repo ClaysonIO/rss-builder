@@ -9,6 +9,8 @@ function App() {
     const [startDate, setStartDate] = useState('')
     const [selectedDays, setSelectedDays] = useState([0, 1, 2, 3, 4, 5, 6]);
     const [showCron, setShowCron] = useState(false);
+    const [autoFuture, setAutoFuture] = useState(false);
+    const [repeat, setRepeat] = useState(false);
     const [theme, setTheme] = useState(() => {
         const savedTheme = localStorage.getItem('theme');
         return savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -73,7 +75,9 @@ function App() {
 
     const feedUrl = useMemo(()=>{
         return `${window.location.origin}/rss?session=${selectedSession?.map(x=>x.value).join(',')}&cron=${(cron.replaceAll(' ', '_'))}&startDate=${startDate}`
-    }, [cron, startDate, selectedSession])
+            + (autoFuture ? '&autoFuture=1' : '')
+            + (repeat ? '&repeat=1' : '')
+    }, [cron, startDate, selectedSession, autoFuture, repeat])
 
     const selectStyles = {
         control: (provided: any) => ({
@@ -159,6 +163,32 @@ function App() {
                         className="session-select"
                     />
                 </div>
+                <label className="option-row">
+                    <input
+                        type="checkbox"
+                        checked={autoFuture}
+                        onChange={(e) => setAutoFuture(e.currentTarget.checked)}
+                    />
+                    <span>
+                        Automatically play future sessions
+                        <small>When these talks run out, continue with each new conference as it comes out.</small>
+                    </span>
+                </label>
+                <label className="option-row">
+                    <input
+                        type="checkbox"
+                        checked={repeat}
+                        onChange={(e) => setRepeat(e.currentTarget.checked)}
+                    />
+                    <span>
+                        Repeat the current session until the next session comes out
+                        <small>
+                            {autoFuture
+                                ? 'Replays the current talks, then switches to the new conference once it is available.'
+                                : 'Replays the current talks until the next conference, then the feed stops.'}
+                        </small>
+                    </span>
+                </label>
             </div>
 
             <div className="app-card">

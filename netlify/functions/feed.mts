@@ -1,6 +1,7 @@
 import type {Context} from "@netlify/functions"
 import Mixpanel from 'mixpanel';
 import {createFeedFromData} from "./helpers/createFeedFromData";
+import {schedulePosts, type Post} from "./helpers/schedulePosts";
 import dayjs from "dayjs";
 
 export default async (req: Request, context: Context) => {
@@ -13,6 +14,8 @@ export default async (req: Request, context: Context) => {
     const cron = params.get('cron')?.replaceAll('_', ' ');
     const start = params.get('startDate');
     const stamp = params.get('stamp');
+    const autoFuture = params.get('autoFuture') === '1';
+    const repeat = params.get('repeat') === '1';
 
     if(!sessions) return errorMessage('Session parameter is required.')
     if(sessions.split(',').map(y=>y.match(/^\d{4}_\d{2}$/)).find(x=>x === null) === null) return errorMessage('Session parameter is invalid. Must be in the format of YYYY_MM.')
@@ -28,14 +31,34 @@ export default async (req: Request, context: Context) => {
             distinct_id: stamp || 'unknown',
             type: 'RSS Feed',
             cron,
-            start
+            start,
+            autoFuture,
+            repeat
         });
     }
 
     try {
-        const posts = sessions.split(',')
+        const posts: Post[] = sessions.split(',')
             .map(session=> require(`./data/${session}.ts`).default)
             .flat()
+
+        const latestSession = [...sessions.split(',')].sort().reverse()[0]
+
+        const scheduledPosts = schedulePosts({
+            cron,
+            start,
+            posts,
+            latestSession,
+            autoFuture,
+            repeat,
+            loadSession: (session) => {
+                try {
+                    return require(`./data/${session}.ts`).default
+                } catch {
+                    return null
+                }
+            }
+        })
 
         const firstSession = sessions.split(',')[0]
         const lastSession = sessions.split(',')[sessions.split(',').length - 1]
@@ -61,9 +84,7 @@ export default async (req: Request, context: Context) => {
                 name: "The Church of Jesus Christ of Latter-day Saints",
                 link: "https://www.churchofjesuschrist.org/",
             },
-            cron: cron ?? '',
-            start: start ?? '',
-            posts: posts
+            posts: scheduledPosts
         })
 
         return new Response(

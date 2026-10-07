@@ -272,3 +272,27 @@ body {
 .app-footer a:hover {
   text-decoration: underline;
 }
+
+.option-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  color: var(--text-color);
+  text-align: left;
+}
+
+.option-row input[type="checkbox"] {
+  margin-top: 0.25rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.option-row small {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--text-secondary);
+}
