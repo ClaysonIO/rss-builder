@@ -51,9 +51,15 @@ export function schedulePosts({
     const endDate = dayjs().add(1, 'd').toDate();
     const slots = parseCronExpression(cron).getNextDatesIterator(startDate, endDate);
 
+    // Talks without audio (session meetings, or audio not published yet) can't go in a podcast feed
+    const playable = (sessionPosts: Post[]) => sessionPosts.filter(post => post.audioUrl);
+
     const loaded = new Map<string, Post[] | null>();
     function load(session: string) {
-        if (!loaded.has(session)) loaded.set(session, loadSession(session));
+        if (!loaded.has(session)) {
+            const sessionPosts = loadSession(session);
+            loaded.set(session, sessionPosts && playable(sessionPosts));
+        }
         return loaded.get(session);
     }
 
@@ -66,7 +72,7 @@ export function schedulePosts({
         return null;
     }
 
-    let current = {session: latestSession, posts};
+    let current = {session: latestSession, posts: playable(posts)};
     let index = 0;
     let pass = 0;
     const scheduled: ScheduledPost[] = [];
