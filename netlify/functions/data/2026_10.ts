@@ -117,13 +117,13 @@ const Posts_2026_10 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/42chibota?lang=eng",
     "title": "A Child of God",
     "speaker": "Rosemary K. Chibota",
-    "audioUrl": "https://assets.churchofjesuschrist.org/x8mjzf8cnd2iwfztt1cxh0mfjdfvu485hii8mjy5-128k-en.mp3?download=true"
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/43andersen?lang=eng",
     "title": "Courage Born of Our Faith in Jesus Christ",
     "speaker": "Neil L. Andersen",
-    "audioUrl": "https://assets.churchofjesuschrist.org/qp3twcc9ujoqcazg0ox27hga94mzqiws7oaz42k9-128k-en.mp3?download=true"
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/44fantone?lang=eng",
@@ -189,7 +189,7 @@ const Posts_2026_10 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/55lebethoa?lang=eng",
     "title": "Jesus Christ Is the Light and Life of the World",
     "speaker": "Thabo Lebethoa",
-    "audioUrl": "https://assets.churchofjesuschrist.org/a0q3t6v8mm4z5by2btufuwz7pzer8l4agm4n362y-128k-en.mp3?download=true"
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/56sinclair?lang=eng",
@@ -207,19 +207,19 @@ const Posts_2026_10 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/58reid?lang=eng",
     "title": "You Are Good Enough to Teach",
     "speaker": "Gabriel W. Reid",
-    "audioUrl": "https://assets.churchofjesuschrist.org/mxbb7rbkxkyrrhxj6fy32af6rob5ng6k7k2o0wat-128k-en.mp3?download=true"
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/59gilbert?lang=eng",
     "title": "Teach Truth with Love",
     "speaker": "Clark G. Gilbert",
-    "audioUrl": "https://assets.churchofjesuschrist.org/hlqj3tdkdcidg94yr0kc0j7u2fnsom5y82pv18hx-128k-en.mp3?download=true"
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/510oaks?lang=eng",
     "title": "Closing Remarks",
     "speaker": "Dallin H. Oaks",
-    "audioUrl": "https://assets.churchofjesuschrist.org/h939g770s0h76gqnoz4rq31z1r3qfn2hus7xcv26-128k-en.mp3?download=true"
+    "audioUrl": ""
   }
 ] 
  export default Posts_2026_10
