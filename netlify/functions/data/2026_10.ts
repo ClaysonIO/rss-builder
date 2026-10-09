@@ -111,13 +111,13 @@ const Posts_2026_10 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/41eyring?lang=eng",
     "title": " Fear Not, I Am with Thee ",
     "speaker": "Henry B. Eyring",
-    "audioUrl": ""
+    "audioUrl": "https://assets.churchofjesuschrist.org/62r0ps21tcrnox59toncp3je4x0jambhi35sikwi-128k-en.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/42chibota?lang=eng",
     "title": "A Child of God",
     "speaker": "Rosemary K. Chibota",
-    "audioUrl": ""
+    "audioUrl": "https://assets.churchofjesuschrist.org/x8mjzf8cnd2iwfztt1cxh0mfjdfvu485hii8mjy5-128k-en.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/43andersen?lang=eng",
