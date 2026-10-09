@@ -81,7 +81,7 @@ const Posts_2026_10 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/26fale?lang=eng",
     "title": "I Am a Child of God",
     "speaker": "Hutch U. Fale",
-    "audioUrl": ""
+    "audioUrl": "https://assets.churchofjesuschrist.org/qssuk7tl5v0a5m5hdq71n2xisb3l44gzrukdt2fe-128k-en.mp3?download=true"
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/27kearon?lang=eng",
