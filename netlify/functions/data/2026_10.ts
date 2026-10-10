@@ -207,7 +207,7 @@ const Posts_2026_10 = [
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/58reid?lang=eng",
     "title": "You Are Good Enough to Teach",
     "speaker": "Gabriel W. Reid",
-    "audioUrl": "https://assets.churchofjesuschrist.org/mxbb7rbkxkyrrhxj6fy32af6rob5ng6k7k2o0wat-128k-en.mp3?download=true"
+    "audioUrl": ""
   },
   {
     "href": "https://www.churchofjesuschrist.org/study/general-conference/2026/10/59gilbert?lang=eng",
